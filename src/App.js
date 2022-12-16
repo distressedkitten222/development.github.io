@@ -253,6 +253,9 @@ function App() {
 
 
             <br/>
+
+            <p class="sources">Information and Image Sources: Spotify, Apple Music, BIGHIT MUSIC.</p>
+            
         </div>
     );
 }

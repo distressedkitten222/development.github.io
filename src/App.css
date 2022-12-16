@@ -93,3 +93,8 @@ h1 {
     column-gap: 2rem;
     row-gap: 5rem;
 }
+
+.sources {
+    padding: 1rem;
+    font-size: small;
+}
