@@ -7,7 +7,6 @@ function Checkbox({id, name, handleChange, checked, title}) {
                 name={name}
                 onChange={handleChange}
                 checked={checked}
-                
             />
             <label style={{marginLeft:"0.5rem"}} htmlFor={id}>{title}</label>
         </div>

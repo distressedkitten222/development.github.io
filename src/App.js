@@ -27,7 +27,7 @@ function App() {
     const [variousLang, setVariousLang] = useState(false);
 
     // For sorting
-    const [sortType, setSortType] = useState(null);
+    const [sortType, setSortType] = useState("AlphabeticalArtist");
     
     // List
     const [list, setList] = useState(albumData);
@@ -162,7 +162,7 @@ function App() {
     })
 
     /**SORTING */
-    //SORT: newest to oldest (descending year), oldest to newest (ascending year), aplhabetical (album name), alphabetical (artist), ascending length, descending length, ascending songs, descending songs
+    //SORT: newest to oldest (descending year), oldest to newest (ascending year), aplhabetical (album name), alphabetical (artist)
 
     const onOptionChange = e => {
         setSortType(e.target.value)
@@ -177,15 +177,7 @@ function App() {
             return a.name > b.name ? 1 : -1;
         } else if (sortType === "AlphabeticalArtist") {
             return ((a.artist >= b.artist)) ? 1 : -1;
-        } /*else if (sortType === "AscendingLength") {
-            return a.minutes - b.minutes;
-        } else if (sortType === "DescendingLength") {
-            return b.minutes - a.minutes;
-        } else if (sortType === "AscendingSongs") {
-            return a.songs - b.songs;
-        } else if (sortType === "DescendingSongs") {
-            return b.songs - a.songs;
-        }*/
+        }
     })
 
     const resetFiltersAndSort = () => {
@@ -198,7 +190,7 @@ function App() {
         setEnglish(false);
         setKorean(false);
         setVariousLang(false);
-        setSortType(null);
+        setSortType("AlphabeticalArtist");
     }
 
     // To be rendered
@@ -238,10 +230,6 @@ function App() {
                                 <RadioButton id="AlphabeticalName" value="AlphabeticalName" sortType={sortType} checkSortType="AlphabeticalName" onOptionChange={onOptionChange} htmlFor="AlphabeticalName" buttonText="Alphabetically (Name)"/>
                                 <RadioButton id="AscendingYear" value="AscendingYear" sortType={sortType} checkSortType="AscendingYear" onOptionChange={onOptionChange} htmlFor="AscendingYear" buttonText="Oldest to Newest"/>
                                 <RadioButton id="DescendingYear" value="DescendingYear" sortType={sortType} checkSortType="DescendingYear" onOptionChange={onOptionChange} htmlFor="DescendingYear" buttonText="Newest to Oldest"/>
-                                {/* <RadioButton id="AscendingLength" value="AscendingLength" sortType={sortType} checkSortType="AscendingLength" onOptionChange={onOptionChange} htmlFor="AscendingLength" buttonText="Length: Lowest to Highest"/>
-                                <RadioButton id="DescendingLength" value="DescendingLength" sortType={sortType} checkSortType="DescendingLength" onOptionChange={onOptionChange} htmlFor="DescendingLength" buttonText="Length: Highest to Lowest"/>
-                                <RadioButton id="AscendingSongs" value="AscendingSongs" sortType={sortType} checkSortType="AscendingSongs" onOptionChange={onOptionChange} htmlFor="AscendingSongs" buttonText="Number of Songs: Lowest to Highest"/>
-                                <RadioButton id="DescendingSongs" value="DescendingSongs" sortType={sortType} checkSortType="DescendingSongs" onOptionChange={onOptionChange} htmlFor="DescendingSongs" buttonText="Number of Songs: Highest to Lowest"/> */}
                             </div>
                         </div>
 
@@ -257,9 +245,6 @@ function App() {
                 </div>
             
                 <div class="list">
-                    {/*filteredAndSortedData.map((item) => (
-                        <AlbumComponent prop1={item} updateAggregator={addToAggregator}/>
-                    ))*/}
                     {list.map((item) => (
                         <AlbumComponent prop1={item} updateAggregator={addToAggregator}/>
                     ))}
